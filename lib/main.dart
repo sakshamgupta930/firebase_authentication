@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/phone_auth/sign_in_with_phone.dart';
+import 'package:flutter_application_1/services/notification_service.dart';
 import 'email_auth/login_screen.dart';
 import 'firebase_options.dart';
 import 'home.dart';
@@ -14,8 +15,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  await NotificationServices.initialize();
+  // FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   // DocumentSnapshot snapshot = await FirebaseFirestore.instance
   //     .collection("users")
